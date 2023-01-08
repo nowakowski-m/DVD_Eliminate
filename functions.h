@@ -3,8 +3,8 @@
 #include <iostream>
 #include <fstream>
 
-int winW = 2160;
-int winH = 1360;
+int winW = 1600;
+int winH = 900;
 
 int menuPos = 0;
 int mouseR = 10;
@@ -144,36 +144,53 @@ void scoreCounter(int scoreX, int scoreY)  {
 // function sets next colors for dvd logo
 
 void setNextColor() {
-    
-    if (colorNum == 13)
-        colorNum = 0;
 
-    if (colorNum == 0)
-        dvd.setFillColor(sf::Color(255, 255, 255, 255));
-    if (colorNum == 1)
-        dvd.setFillColor(sf::Color(255, 153, 204, 255));
-    if (colorNum == 2)
-        dvd.setFillColor(sf::Color(255, 153, 255, 255));
-    if (colorNum == 3)
-        dvd.setFillColor(sf::Color(204, 153, 255, 255));
-    if (colorNum == 4)
-        dvd.setFillColor(sf::Color(153, 153, 255, 255));
-    if (colorNum == 5)
-        dvd.setFillColor(sf::Color(153, 204, 255, 255));
-    if (colorNum == 6)
-        dvd.setFillColor(sf::Color(153, 255, 255, 255));
-    if (colorNum == 7)
-        dvd.setFillColor(sf::Color(153, 255, 204, 255));
-    if (colorNum == 8)
-        dvd.setFillColor(sf::Color(153, 255, 153, 255));
-    if (colorNum == 9)
-        dvd.setFillColor(sf::Color(204, 255, 153, 255));
-    if (colorNum == 10)
-        dvd.setFillColor(sf::Color(255, 255, 153, 255));
-    if (colorNum == 11)
-        dvd.setFillColor(sf::Color(255, 204, 153, 255));
-    if (colorNum == 12)
-        dvd.setFillColor(sf::Color(255, 153, 153, 255));
+    switch (colorNum) {
+        
+        case 0:
+            dvd.setFillColor(sf::Color(255, 255, 255, 255));
+            break;
+        case 1:
+            dvd.setFillColor(sf::Color(255, 153, 204, 255));
+            break;
+        case 2:
+            dvd.setFillColor(sf::Color(255, 153, 255, 255));
+            break;
+        case 3:
+            dvd.setFillColor(sf::Color(204, 153, 255, 255));
+            break;
+        case 4:
+            dvd.setFillColor(sf::Color(153, 153, 255, 255));
+            break;
+        case 5:
+            dvd.setFillColor(sf::Color(153, 204, 255, 255));
+            break;
+        case 6:
+            dvd.setFillColor(sf::Color(153, 255, 255, 255));
+            break;
+        case 7:
+            dvd.setFillColor(sf::Color(153, 255, 204, 255));
+            break;
+        case 8:
+            dvd.setFillColor(sf::Color(153, 255, 153, 255));
+            break;
+        case 9:
+            dvd.setFillColor(sf::Color(204, 255, 153, 255));
+            break;
+        case 10:
+            dvd.setFillColor(sf::Color(255, 255, 153, 255));
+            break;
+        case 11:
+            dvd.setFillColor(sf::Color(255, 204, 153, 255));
+            break;
+        case 12:
+            dvd.setFillColor(sf::Color(255, 153, 153, 255));
+            break;
+        case 13:
+            colorNum = 0;
+            break;
+
+    }
 
     colorNum += 1;
 
@@ -508,8 +525,8 @@ void gameScreen() {
 
     clickOnlyOnes(windowEvent);
     gameWindow.setFramerateLimit(60);
-    buttonCreate(windowEvent, std::to_string(morePointsPrice), winW - (winW / 16), winH - (winH / 1.02), 100, 100, morePoints);
-    scoreCounter(winW * 0.01, winH * 0.02);
+    buttonCreate(windowEvent, std::to_string(morePointsPrice), winW - (winW / 13), winH - (winH / 1.025), 100, 100, morePoints);
+    scoreCounter(winW * 0.015, winH * 0.03);
     dvdClick();
     dvdCreate();
     int mouseX = sf::Mouse::getPosition(gameWindow).x;
